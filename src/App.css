@@ -8,8 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #DC983C;
   padding: 20px;
   color: white;
 }
@@ -25,4 +24,15 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.homepage-text-field {
+  margin-top: 20px !important;
+  width: 25%
+}
+
+.homepage-button {
+  margin: 20px !important;
+  background-color: #DC983C !important;
+  color: #fff !important;
 }
