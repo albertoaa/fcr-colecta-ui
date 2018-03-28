@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
@@ -15,7 +14,7 @@ class App extends Component {
           <TextField 
             id = "email"
             label="Email"
-            value="Ingresa tu correo electrónico"
+            placeholder="Ingresa tu correo electrónico"
             className="homepage-text-field" 
           />
           <Button variant="raised" className="homepage-button">
