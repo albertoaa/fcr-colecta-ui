@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
+import EmailForm from './components/EmailForm'
+import PersonalData from './components/PersonalData'
 import './App.css';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentStep: "email",
+      email: ""
+    }
+  }
+
+  updateStep = (data) => {
+    if (data.currentStep === "email") {
+      if (!data.isRegistered) {
+        this.setState({currentStep: "personalData"})
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">¡Inscríbete ya! o ¡Invita más amigos!</h1>
-        </header>
-        <div>
-          <TextField 
-            id = "email"
-            label="Email"
-            placeholder="Ingresa tu correo electrónico"
-            className="homepage-text-field" 
-          />
-          <Button variant="raised" className="homepage-button">
-            Ingresar
-          </Button>
-        </div>
+        <EmailForm currentStep={this.state.currentStep} onUpdateStep={this.updateStep}></EmailForm>
+        <PersonalData currentStep={this.state.currentStep} onUpdateStep={this.updateStep}></PersonalData>
       </div>
     );
   }
