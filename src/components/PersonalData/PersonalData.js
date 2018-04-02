@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, } from 'react'
 import TextField from 'material-ui/TextField';
 import DatePicker from 'react-datepicker';
 import DatePickerUI from '../DatePickerUI'
@@ -7,7 +7,7 @@ import moment from 'moment/locale/es'
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-class PersonalData extends React.Component {
+class PersonalData extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -44,9 +44,6 @@ class PersonalData extends React.Component {
   }
 
   render() {
-    if (this.props.currentStep !== "personalData") {
-      return null;
-    }
     return (
       <div className="personal-data">
         <header className="App-header">

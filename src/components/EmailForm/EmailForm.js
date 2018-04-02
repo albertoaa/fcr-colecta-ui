@@ -2,6 +2,7 @@ import React from 'react'
 import { emailLookup } from '../../api/index'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import * as routes from '../../constants/routes'
 
 class EmailForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class EmailForm extends React.Component {
     if (this.state.email !== "") {
       emailLookup(this.state.email)
         .then((response) => {
-          this.props.onUpdateStep({currentStep: "email", isRegistered: !!response.response.new_user })
+          this.props.onUpdateHistory({currentRoute: routes.EMAIL, isRegistered: !!response.response.new_user} );
         })
     }
   }
@@ -26,10 +27,9 @@ class EmailForm extends React.Component {
   }
 
   render() {
-    if (this.props.currentStep !== "email") {
-      return null;
-    }
+    console.log(this.props)
     return (
+      <div className="App">
       <div className="EmailLookup">
         <header className="App-header">
           <h1 className="App-title">¡Inscríbete ya! o ¡Invita más amigos!</h1>
@@ -52,6 +52,7 @@ class EmailForm extends React.Component {
             </Button>
           </form>
         </div>
+      </div>
       </div>
     );
   }
