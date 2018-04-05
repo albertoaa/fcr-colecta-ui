@@ -14,3 +14,9 @@ export const emailLookup = (email) => {
     .then(response => ({ response }))
     .catch(error => ({ error }))
 }
+
+export const savePersonalData = (data) => {
+  return axios.post('personal_data', data)
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { emailLookup } from '../../api/index'
+import { emailLookup } from '../../api'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import * as routes from '../../constants/routes'
@@ -27,7 +27,6 @@ class EmailForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="App">
       <div className="EmailLookup">

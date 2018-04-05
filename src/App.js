@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EmailForm from './components/EmailForm/'
 import PersonalData from './components/PersonalData'
+import ChoosePlace from './components/ChoosePlace'
 import { BrowserRouter as Router, Route, Switch, PropsRoute } from "react-router-dom";
 import * as routes from './constants/routes'
 
@@ -12,7 +13,11 @@ class App extends Component {
     if (data.currentRoute === routes.EMAIL) {
       if (!data.isRegistered) {
         history.push(routes.PERSONAL_DATA);
+        return;
       }
+    }
+    if (data.currentRoute === routes.PERSONAL_DATA) {
+      history.push(routes.CHOOSE_PLACE)
     }
   }
 
@@ -33,8 +38,16 @@ class App extends Component {
             onUpdateHistory={this.updateHistory} />  }
           />
           <Route
-            path={ routes.PERSONAL_DATA }
-            component={ PersonalData }
+            exact path={ routes.PERSONAL_DATA }
+            render={(routeProps) => (
+              <PersonalData {...routeProps} onUpdateHistory={ (data) => this.updateHistory(routeProps.history, data) } />
+            )}
+          />
+          <Route
+            exact path={ routes.CHOOSE_PLACE }
+            render={(routeProps) => {
+              <ChoosePlace {...routeProps} onUpdateHistory={ (data) => this.updateHistory(routeProps.history, data)} />
+            }}
           />
         </Switch>
       </Router>
