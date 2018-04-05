@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EmailForm from './components/EmailForm/'
 import PersonalData from './components/PersonalData'
 import ChoosePlace from './components/ChoosePlace'
-import { BrowserRouter as Router, Route, Switch, PropsRoute } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as routes from './constants/routes'
 
 import './App.css';
@@ -45,9 +45,9 @@ class App extends Component {
           />
           <Route
             exact path={ routes.CHOOSE_PLACE }
-            render={(routeProps) => {
-              <ChoosePlace {...routeProps} onUpdateHistory={ (data) => this.updateHistory(routeProps.history, data)} />
-            }}
+            render={(routeProps) => (
+              <ChoosePlace {...routeProps} onUpdateHistory={ (data) => this.updateHistory(routeProps.history, data) } />
+            )}
           />
         </Switch>
       </Router>

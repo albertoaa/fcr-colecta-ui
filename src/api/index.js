@@ -20,3 +20,15 @@ export const savePersonalData = (data) => {
     .then(response => ({ response }))
     .catch(error => ({ error }))
 }
+
+export const getCities = () => {
+  return axios.get('cities')
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
+}
+
+export const getActivePlaces = (data) => {
+  return axios.get("places/" + data.cityId + "/active")
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
+}

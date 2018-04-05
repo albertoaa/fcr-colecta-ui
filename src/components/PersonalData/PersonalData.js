@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import DatePicker from 'react-datepicker';
-import DatePickerUI from '../DatePickerUI'
-// Is not "used" but is required to use in spanish...
-import moment from 'moment/locale/es'
 import * as routes from '../../constants/routes'
 import { savePersonalData } from '../../api'
 
@@ -33,10 +29,6 @@ class PersonalData extends Component {
     hash.value = value
     hash.isValid = this.isValid(name, value)
     this.setState({[name]: hash})
-  }
-
-  handleInputDate = (date, event, batman) => {
-    this.setState({birthday: date.format('L')})
   }
 
   handleFocus = (event) => {
