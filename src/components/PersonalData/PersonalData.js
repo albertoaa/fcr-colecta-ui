@@ -62,7 +62,7 @@ class PersonalData extends Component {
             <h1 className="App-title">Datos Personales</h1>
           </header>
           <form>
-            <Grid container>
+            <Grid container justify="center">
               <Grid item xs={3}>
                 <TextField
                   label="Nombre"
