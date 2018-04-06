@@ -102,7 +102,7 @@ export default class ChoosePlace extends Component {
                 >
                   {this.showSchedules()}
                 </Select>
-                <FormHelperText>Selecciona el horario</FormHelperText>
+                <FormHelperText>Selecciona el horario adecuado segun la ciudad</FormHelperText>
               </FormControl>
             </Grid>
             <Grid item xs={4} style={{maxHeight: "100px"}}>
