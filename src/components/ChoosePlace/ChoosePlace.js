@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { getCities, getActivePlaces } from '../../api'
 import Select from 'material-ui/Select'
 import { MenuItem } from 'material-ui/Menu';
+import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl, FormHelperText } from 'material-ui/Form';
 import Grid from 'material-ui/Grid';
 
 import PlacesMap from '../PlacesMap';
@@ -63,12 +65,17 @@ export default class ChoosePlace extends Component {
         </header>
         <Grid container>
           <Grid item xs={12}>
-          <Select
-            value={this.state.currentCityId}
-            onChange={this.updatePlaces}
-          >
-            {this.showCities()}
-          </Select>
+          <FormControl>
+            <InputLabel htmlFor="city-selector">Ciudad</InputLabel>
+            <Select
+              value={this.state.currentCityId}
+              onChange={this.updatePlaces}
+              inputProps={{id: 'city-selector'}}
+            >
+              {this.showCities()}
+            </Select>
+            <FormHelperText>Selecciona la ciudad</FormHelperText>
+          </FormControl>
           </Grid>
           <Grid item xs={4} style={{maxHeight: "100px"}}>
             {

@@ -14,7 +14,7 @@ class PersonalData extends Component {
       firstname: {value: "", required: true, isValid: false, touched: false},
       lastname: {value: "", required: true, isValid: false, touched: false},
       identifier: {value: "", required: true, isValid: false, touched: false},
-      birthday: {value: "", required: true, isValid: false, touched: false},
+      birthday: {value: "2000-01-01", required: true, isValid: false, touched: false},
       phone: {value: "", required: true, isValid: false, touched: false},
       cellphone: {value: "", required: true, isValid: false, touched: false},
       email: {value: "", required: true, isValid: false, touched: false},
@@ -56,13 +56,14 @@ class PersonalData extends Component {
 
   render() {
     return (
+      <div className="App">
       <div className="personal-data">
         <header className="App-header">
           <h1 className="App-title">Datos Personales</h1>
         </header>
         <form>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={3}>
               <TextField
                 label="Nombre"
                 name="firstname"
@@ -105,7 +106,7 @@ class PersonalData extends Component {
                 required={this.state.birthday.required}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={3}>
               <TextField
                 label="Teléfono Fijo"
                 name="phone"
@@ -114,6 +115,7 @@ class PersonalData extends Component {
                 onChange={this.handleInput}
                 value={this.state.phone.value}
                 error={this.state.phone.touched && !this.state.phone.isValid}
+                required={this.state.phone.required}
               /><br/>
               <TextField
                 label="Teléfono Celular"
@@ -123,6 +125,7 @@ class PersonalData extends Component {
                 onChange={this.handleInput}
                 value={this.state.cellphone.value}
                 error={this.state.cellphone.touched && !this.state.cellphone.isValid}
+                required={this.state.cellphone.required}
               /><br/>
               <TextField
                 label="Correo Electrónico"
@@ -133,9 +136,10 @@ class PersonalData extends Component {
                 onChange={this.handleInput}
                 value={this.state.email.value}
                 error={this.state.email.touched && !this.state.email.isValid}
+                required={this.state.email.required}
               /><br/>
               <TextField
-                label="Confirmación Correo Electrónico"
+                label="Confirmación Correo"
                 name="email_confirmation"
                 placeholder="Ingresa nuevamente tu correo electrónico"
                 type="email_confirmation"
@@ -143,13 +147,15 @@ class PersonalData extends Component {
                 onChange={this.handleInput}
                 value={this.state.email_confirmation.value}
                 error={this.state.email_confirmation.touched && !this.state.email_confirmation.isValid}
+                required={this.state.email_confirmation.required}
               /><br/>
             </Grid>
-            <Button variant="raised" className="homepage-button" onClick={this.handleSubmit}>
-              Guardar
-            </Button>
           </Grid>
+          <Button variant="raised" className="homepage-button" onClick={this.handleSubmit}>
+            Guardar
+          </Button>
         </form>
+      </div>
       </div>
     )
   }
