@@ -1,5 +1,5 @@
 import React from 'react'
-import { emailLookup } from '../../api'
+import {emailLookup} from '../../api'
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import * as routes from '../../constants/routes'
@@ -17,7 +17,7 @@ class EmailForm extends React.Component {
     if (this.state.email !== "") {
       emailLookup(this.state.email)
         .then((response) => {
-          this.props.onUpdateHistory({currentRoute: routes.EMAIL, isRegistered: !!response.response.new_user} );
+          this.props.onUpdateHistory({currentRoute: routes.EMAIL, isRegistered: !!response.response.new_user});
         })
     }
   }
@@ -29,29 +29,29 @@ class EmailForm extends React.Component {
   render() {
     return (
       <div className="App">
-      <div className="EmailLookup">
-        <header className="App-header">
-          <h1 className="App-title">¡Inscríbete ya! o ¡Invita más amigos!</h1>
-        </header>
-        <div>
-          <form>
-            <TextField
-              id = "email"
-              label="Email"
-              name="email"
-              placeholder="Ingresa tu correo electrónico"
-              className="homepage-text-field"
-              value={this.state.email}
-              required={true}
-              onChange={this.handleInput}
-              type="email"
-            />
-            <Button variant="raised" className="homepage-button" onClick={this.handleSubmit}>
-              Ingresar
-            </Button>
-          </form>
+        <div className="EmailLookup">
+          <header className="App-header">
+            <h1 className="App-title">¡Inscríbete ya! o ¡Invita más amigos!</h1>
+          </header>
+          <div>
+            <form>
+              <TextField
+                id="email"
+                label="Email"
+                name="email"
+                placeholder="Ingresa tu correo electrónico"
+                className="homepage-text-field"
+                value={this.state.email}
+                required={true}
+                onChange={this.handleInput}
+                type="email"
+              />
+              <Button variant="raised" className="homepage-button" onClick={this.handleSubmit}>
+                Ingresar
+              </Button>
+            </form>
+          </div>
         </div>
-      </div>
       </div>
     );
   }

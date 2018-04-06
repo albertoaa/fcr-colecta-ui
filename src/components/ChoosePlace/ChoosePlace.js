@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { getCities, getActivePlaces } from '../../api'
+import React, {Component} from 'react'
+import {getActivePlaces, getCities} from '../../api'
 import Select from 'material-ui/Select'
-import { MenuItem } from 'material-ui/Menu';
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import {MenuItem} from 'material-ui/Menu';
+import {InputLabel} from 'material-ui/Input';
+import {FormControl, FormHelperText} from 'material-ui/Form';
 import Grid from 'material-ui/Grid';
 
 import PlacesMap from '../PlacesMap';
